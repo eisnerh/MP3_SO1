@@ -35,7 +35,7 @@ public class reproductorMP3 extends javax.swing.JDialog {
         Loop = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jProgressBar1 = new javax.swing.JProgressBar();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -104,14 +104,7 @@ public class reproductorMP3 extends javax.swing.JDialog {
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 130));
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 51));
-
-        jLabel1.setText("Resume");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabel1MouseReleased(evt);
-            }
-        });
-        jPanel1.add(jLabel1);
+        jPanel1.add(jProgressBar1);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 370, 90));
 
@@ -168,17 +161,13 @@ public class reproductorMP3 extends javax.swing.JDialog {
         //reproduce el archivo que se encuentra en la siguiente ubicación
 //        mc.Play("C:\\Users\\eisne\\Music\\Musica\\Abraham Mateo - Old School.mp3");
         mc.Resume();
+        
     }//GEN-LAST:event_PlayMouseReleased
 
     private void PauseMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PauseMouseReleased
         // TODO add your handling code here:
         mc.Pause();
     }//GEN-LAST:event_PauseMouseReleased
-
-    private void jLabel1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseReleased
-        // TODO add your handling code here:
-        mc.Resume();
-    }//GEN-LAST:event_jLabel1MouseReleased
 
     private void SelectFileMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SelectFileMouseReleased
         // TODO add your handling code here:
@@ -268,12 +257,12 @@ public class reproductorMP3 extends javax.swing.JDialog {
     private javax.swing.JLabel Play;
     private javax.swing.JLabel SelectFile;
     private javax.swing.JLabel Stop;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JProgressBar jProgressBar1;
     // End of variables declaration//GEN-END:variables
 }

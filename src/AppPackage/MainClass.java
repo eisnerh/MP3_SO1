@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 public class MainClass 
@@ -44,7 +45,7 @@ public class MainClass
                 pauseLocation = fis.available();
                 player.close();
             } catch (IOException ex) {
-                
+                JOptionPane.showMessageDialog(null,"Error");
             }
             
         }
@@ -113,6 +114,12 @@ public class MainClass
             }
         }
                 .start();
+    }
+    
+    public void progress(long l)
+    {
+        l = totalCancion;
+        
     }
     
 }
