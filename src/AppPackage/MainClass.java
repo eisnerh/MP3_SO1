@@ -30,6 +30,8 @@ public class MainClass
             // deteniendo el archivo los valores iniciales serán 0
             pauseLocation = 0;
             totalCancion = 0;
+            
+            
         }
     }
     

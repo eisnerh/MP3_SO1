@@ -3,6 +3,10 @@ package AppPackage;
 //All code is added to create the widget. Follow the "Create a Widget" tutorial if you want to know how I did it.
 
 import java.awt.Toolkit;
+import java.io.File;
+import java.io.FileFilter;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class reproductorMP3 extends javax.swing.JDialog 
 {
@@ -26,6 +30,7 @@ public class reproductorMP3 extends javax.swing.JDialog
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Display = new javax.swing.JLabel();
         Play = new javax.swing.JLabel();
         SelectFile = new javax.swing.JLabel();
         Pause = new javax.swing.JLabel();
@@ -40,6 +45,11 @@ public class reproductorMP3 extends javax.swing.JDialog
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Display.setFont(new java.awt.Font("Lucida Calligraphy", 1, 14)); // NOI18N
+        Display.setForeground(new java.awt.Color(255, 255, 255));
+        Display.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(Display, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 10, 330, 20));
+
         Play.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Play.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -49,6 +59,11 @@ public class reproductorMP3 extends javax.swing.JDialog
         getContentPane().add(Play, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 90, 83));
 
         SelectFile.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        SelectFile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                SelectFileMouseReleased(evt);
+            }
+        });
         getContentPane().add(SelectFile, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 60, 40, 40));
 
         Pause.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -71,6 +86,7 @@ public class reproductorMP3 extends javax.swing.JDialog
         getContentPane().add(Loop, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 40, 40));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/Background.png"))); // NOI18N
+        Background.setText("000000000000");
         Background.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 BackgroundMouseDragged(evt);
@@ -119,7 +135,8 @@ public class reproductorMP3 extends javax.swing.JDialog
     private void PlayMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlayMouseReleased
         // TODO add your handling code here:
         //reproduce el archivo que se encuentra en la siguiente ubicación
-        mc.Play("C:\\Users\\eisne\\Music\\Musica\\Abraham Mateo - Old School.mp3");
+//        mc.Play("C:\\Users\\eisne\\Music\\Musica\\Abraham Mateo - Old School.mp3");
+        mc.Resume();
     }//GEN-LAST:event_PlayMouseReleased
 
     private void PauseMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PauseMouseReleased
@@ -131,6 +148,30 @@ public class reproductorMP3 extends javax.swing.JDialog
         // TODO add your handling code here:
         mc.Resume();
     }//GEN-LAST:event_jLabel1MouseReleased
+
+    private void SelectFileMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SelectFileMouseReleased
+        // TODO add your handling code here:
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos MP3", "mp3", "mpeg3");
+        
+        JFileChooser chooser = new JFileChooser("C:\\Musica");
+        chooser.addChoosableFileFilter(filter);
+        
+        int returnVal = chooser.showOpenDialog(null);
+        
+        if (returnVal == JFileChooser.APPROVE_OPTION)
+        {
+            mc.Stop();
+            
+            File myFile = chooser.getSelectedFile();
+            String song = myFile + "";
+            
+            String name = chooser.getSelectedFile().getName();
+            Display.setText(name);
+            
+            
+            mc.Play(song);
+        }
+    }//GEN-LAST:event_SelectFileMouseReleased
 
     public static void main(String args[]) 
     {
@@ -177,6 +218,7 @@ public class reproductorMP3 extends javax.swing.JDialog
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
+    private javax.swing.JLabel Display;
     private javax.swing.JLabel Loop;
     private javax.swing.JLabel Pause;
     private javax.swing.JLabel Play;
