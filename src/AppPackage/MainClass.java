@@ -27,6 +27,9 @@ public class MainClass
         if (player != null)
         {
             player.close();
+            // deteniendo el archivo los valores iniciales serán 0
+            pauseLocation = 0;
+            totalCancion = 0;
         }
     }
     
@@ -35,11 +38,13 @@ public class MainClass
         if (player != null)
         {
             try {
+                
                 pauseLocation = fis.available();
+                player.close();
             } catch (IOException ex) {
                 
             }
-            player.close();
+            
         }
     }
     
@@ -50,6 +55,7 @@ public class MainClass
             bis = new BufferedInputStream(fis);
             
             player = new Player(bis);
+            
             totalCancion = fis.available();
             
             fileLocation = ruta + "";
@@ -57,7 +63,7 @@ public class MainClass
         } catch (FileNotFoundException | JavaLayerException ex) {
             
         } catch (IOException ex) {
-            Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
+           
         }
     
         
@@ -88,7 +94,7 @@ public class MainClass
         } catch (FileNotFoundException | JavaLayerException ex) {
             
         } catch (IOException ex) {
-            Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
     
         

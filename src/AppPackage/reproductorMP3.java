@@ -112,11 +112,13 @@ public class reproductorMP3 extends javax.swing.JDialog
 
     private void StopMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StopMouseReleased
         // TODO add your handling code here:
+        //detiene la música
         mc.Stop();
     }//GEN-LAST:event_StopMouseReleased
 
     private void PlayMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlayMouseReleased
         // TODO add your handling code here:
+        //reproduce el archivo que se encuentra en la siguiente ubicación
         mc.Play("C:\\Users\\eisne\\Music\\Musica\\Abraham Mateo - Old School.mp3");
     }//GEN-LAST:event_PlayMouseReleased
 
