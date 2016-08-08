@@ -23,6 +23,10 @@ public class reproductorMP3 extends javax.swing.JDialog {
         this.setLocationRelativeTo(null);
     }
 
+    reproductorMP3() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -45,7 +49,6 @@ public class reproductorMP3 extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("MP3 Player");
         setLocation(new java.awt.Point(640, 480));
-        setMaximumSize(new java.awt.Dimension(370, 220));
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -89,7 +92,7 @@ public class reproductorMP3 extends javax.swing.JDialog {
         Loop.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(Loop, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 40, 40));
 
-        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/Background.png"))); // NOI18N
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/Imagenes/Background.png"))); // NOI18N
         Background.setText("000000000000");
         Background.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -104,6 +107,10 @@ public class reproductorMP3 extends javax.swing.JDialog {
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 130));
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 51));
+
+        jProgressBar1.setBackground(new java.awt.Color(255, 255, 255));
+        jProgressBar1.setForeground(new java.awt.Color(0, 204, 0));
+        jProgressBar1.setStringPainted(true);
         jPanel1.add(jProgressBar1);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 370, 90));
@@ -162,6 +169,9 @@ public class reproductorMP3 extends javax.swing.JDialog {
 //        mc.Play("C:\\Users\\eisne\\Music\\Musica\\Abraham Mateo - Old School.mp3");
         mc.Resume();
         
+        
+        jProgressBar1.setValue(25);
+        
     }//GEN-LAST:event_PlayMouseReleased
 
     private void PauseMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PauseMouseReleased
@@ -183,11 +193,14 @@ public class reproductorMP3 extends javax.swing.JDialog {
 
             File myFile = chooser.getSelectedFile();
             String song = myFile + "";
+            
+            
 
             String name = chooser.getSelectedFile().getName();
             Display.setText(name);
 
             mc.Play(song);
+            
         }
     }//GEN-LAST:event_SelectFileMouseReleased
 

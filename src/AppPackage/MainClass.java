@@ -4,8 +4,7 @@ import java.io.FileInputStream;
 import java.io.BufferedInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Map;
 import javax.swing.JOptionPane;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
@@ -116,10 +115,12 @@ public class MainClass
                 .start();
     }
     
-    public void progress(long l)
-    {
-        l = totalCancion;
-        
+    public void progress(int bytesread, long microseconds, byte[] pcmdata,  Map properties) {
+        float bytesLength = 0;
+ float progressUpdate = (float) (bytesread * 1.0f / bytesLength * 1.0f);
+ int progressNow = (int) (bytesLength * progressUpdate);
+ // Descomentando la siguiente línea se mosrtaría el progreso
+ System.out.println(" -&gt; " + progressNow);
     }
     
 }
