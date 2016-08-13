@@ -4,21 +4,24 @@
  * and open the template in the editor.
  */
 package Conectar;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
-
 /**
- *
- * @author eisne
+ * Metodo que consulta en el gestor de la base de datos si existe la misma y le permite conectarla
+ * @author Eisner Lopez y Diego Murillo
  */
 public class Coneccion {
+    //Atributos de la clase
     Connection conect = null;
+    /**
+     * Metodo de conexión a la base de datos
+     * @return
+     */
     public Connection conexion()
     {
       try {
-             
            //Cargamos el Driver MySQL
            Class.forName("com.mysql.jdbc.Driver");
            conect = DriverManager.getConnection("jdbc:mysql://localhost/proyectoso1","root","1234");
@@ -30,11 +33,9 @@ public class Coneccion {
            //Conectar Localmente
            //String strConect = "jdbc:odbc:Driver=Microsoft Access Driver (*.mdb);DBQ=D:/cwnetbeans/cw.mdb";
           //conect = DriverManager.getConnection(strConect,"",""); 
-        } catch (Exception e) {
+        } catch (ClassNotFoundException | SQLException e) {
             JOptionPane.showMessageDialog(null,"Error "+e);
         }
-        return conect;
-     
-}
-    
+    return conect; 
+    }
 }

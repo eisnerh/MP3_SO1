@@ -1,5 +1,5 @@
 package AppPackage;
-
+/*Librerias que se está importando a esta clase*/
 import java.io.FileInputStream;
 import java.io.BufferedInputStream;
 import java.io.FileNotFoundException;
@@ -8,11 +8,14 @@ import java.util.Map;
 import javax.swing.JOptionPane;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
+/**
+ *
+ * @author Eisner Lopez y Diego Murillo
+ */
 public class MainClass 
 {
     FileInputStream fis;
     BufferedInputStream bis;
-    
     public Player player;
     //guarda lo que queda de la canción
     public long pauseLocation;
